@@ -23,7 +23,7 @@ usersRouter.post('/', (request, response) => {
     aboutMe,
   } = request.body;
 
-  const user = usersRepository.create(
+  const user = usersRepository.create({
     username,
     email,
     firstName,
@@ -32,7 +32,7 @@ usersRouter.post('/', (request, response) => {
     country,
     postalCode,
     aboutMe,
-  );
+  });
 
   return response.json(user);
 });

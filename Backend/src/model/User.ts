@@ -19,16 +19,16 @@ class User {
 
   aboutMe: string;
 
-  constructor(
-    username: string,
-    email: string,
-    firstName: string,
-    lastName: string,
-    city: string,
-    country: string,
-    postalCode: string,
-    aboutMe: string,
-  ) {
+  constructor({
+    username,
+    email,
+    firstName,
+    lastName,
+    city,
+    country,
+    postalCode,
+    aboutMe,
+  }: Omit<User, 'id'>) {
     this.id = uuid();
     this.username = username;
     this.email = email;

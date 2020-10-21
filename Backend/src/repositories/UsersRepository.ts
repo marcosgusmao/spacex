@@ -7,6 +7,10 @@ class UsersRepository {
     this.users = [];
   }
 
+  public all(): User[] {
+    return this.users;
+  }
+
   public create(
     username: string,
     email: string,

@@ -1,52 +1,8 @@
-import User from '../model/User';
+import { EntityRepository, Repository } from 'typeorm';
 
-interface CreateUserDTO {
-  username: string;
-  email: string;
-  firstName: string;
-  lastName: string;
-  city: string;
-  country: string;
-  postalCode: string;
-  aboutMe: string;
-}
+import User from '../models/User';
 
-class UsersRepository {
-  private users: User[];
-
-  constructor() {
-    this.users = [];
-  }
-
-  public all(): User[] {
-    return this.users;
-  }
-
-  public create({
-    username,
-    email,
-    firstName,
-    lastName,
-    city,
-    country,
-    postalCode,
-    aboutMe,
-  }: CreateUserDTO): User {
-    const user = new User({
-      username,
-      email,
-      firstName,
-      lastName,
-      city,
-      country,
-      postalCode,
-      aboutMe,
-    });
-
-    this.users.push(user);
-
-    return user;
-  }
-}
+@EntityRepository(User)
+class UsersRepository extends Repository<User> {}
 
 export default UsersRepository;
